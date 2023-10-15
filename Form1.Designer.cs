@@ -32,6 +32,7 @@
             this.maskedTextBoxPassword = new System.Windows.Forms.MaskedTextBox();
             this.buttonEnter = new System.Windows.Forms.Button();
             this.buttonRegister = new System.Windows.Forms.Button();
+            this.cbRoles = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // textBoxLogin
@@ -58,6 +59,7 @@
             this.buttonEnter.TabIndex = 3;
             this.buttonEnter.Text = "Войти";
             this.buttonEnter.UseVisualStyleBackColor = true;
+            this.buttonEnter.Click += new System.EventHandler(this.buttonEnter_Click);
             // 
             // buttonRegister
             // 
@@ -69,11 +71,23 @@
             this.buttonRegister.UseVisualStyleBackColor = true;
             this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
             // 
+            // cbRoles
+            // 
+            this.cbRoles.FormattingEnabled = true;
+            this.cbRoles.Items.AddRange(new object[] {
+            "Administrator",
+            "User"});
+            this.cbRoles.Location = new System.Drawing.Point(36, 407);
+            this.cbRoles.Name = "cbRoles";
+            this.cbRoles.Size = new System.Drawing.Size(121, 21);
+            this.cbRoles.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(343, 450);
+            this.Controls.Add(this.cbRoles);
             this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.buttonEnter);
             this.Controls.Add(this.maskedTextBoxPassword);
@@ -91,6 +105,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPassword;
         private System.Windows.Forms.Button buttonEnter;
         private System.Windows.Forms.Button buttonRegister;
+        private System.Windows.Forms.ComboBox cbRoles;
     }
 }
 
