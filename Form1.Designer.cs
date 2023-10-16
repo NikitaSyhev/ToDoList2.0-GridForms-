@@ -37,25 +37,28 @@
             // 
             // textBoxLogin
             // 
-            this.textBoxLogin.Location = new System.Drawing.Point(36, 60);
+            this.textBoxLogin.Location = new System.Drawing.Point(54, 92);
+            this.textBoxLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBoxLogin.Multiline = true;
             this.textBoxLogin.Name = "textBoxLogin";
-            this.textBoxLogin.Size = new System.Drawing.Size(256, 53);
+            this.textBoxLogin.Size = new System.Drawing.Size(382, 79);
             this.textBoxLogin.TabIndex = 1;
             // 
             // maskedTextBoxPassword
             // 
-            this.maskedTextBoxPassword.Location = new System.Drawing.Point(36, 174);
+            this.maskedTextBoxPassword.Location = new System.Drawing.Point(54, 268);
+            this.maskedTextBoxPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.maskedTextBoxPassword.Name = "maskedTextBoxPassword";
             this.maskedTextBoxPassword.PasswordChar = '*';
-            this.maskedTextBoxPassword.Size = new System.Drawing.Size(256, 20);
+            this.maskedTextBoxPassword.Size = new System.Drawing.Size(382, 26);
             this.maskedTextBoxPassword.TabIndex = 2;
             // 
             // buttonEnter
             // 
-            this.buttonEnter.Location = new System.Drawing.Point(36, 254);
+            this.buttonEnter.Location = new System.Drawing.Point(54, 391);
+            this.buttonEnter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonEnter.Name = "buttonEnter";
-            this.buttonEnter.Size = new System.Drawing.Size(256, 54);
+            this.buttonEnter.Size = new System.Drawing.Size(384, 83);
             this.buttonEnter.TabIndex = 3;
             this.buttonEnter.Text = "Войти";
             this.buttonEnter.UseVisualStyleBackColor = true;
@@ -63,9 +66,10 @@
             // 
             // buttonRegister
             // 
-            this.buttonRegister.Location = new System.Drawing.Point(36, 336);
+            this.buttonRegister.Location = new System.Drawing.Point(54, 517);
+            this.buttonRegister.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonRegister.Name = "buttonRegister";
-            this.buttonRegister.Size = new System.Drawing.Size(256, 54);
+            this.buttonRegister.Size = new System.Drawing.Size(384, 83);
             this.buttonRegister.TabIndex = 4;
             this.buttonRegister.Text = "Добавить пользователя";
             this.buttonRegister.UseVisualStyleBackColor = true;
@@ -77,21 +81,23 @@
             this.cbRoles.Items.AddRange(new object[] {
             "Administrator",
             "User"});
-            this.cbRoles.Location = new System.Drawing.Point(36, 407);
+            this.cbRoles.Location = new System.Drawing.Point(54, 626);
+            this.cbRoles.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbRoles.Name = "cbRoles";
-            this.cbRoles.Size = new System.Drawing.Size(121, 21);
+            this.cbRoles.Size = new System.Drawing.Size(180, 28);
             this.cbRoles.TabIndex = 5;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 450);
+            this.ClientSize = new System.Drawing.Size(514, 692);
             this.Controls.Add(this.cbRoles);
             this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.buttonEnter);
             this.Controls.Add(this.maskedTextBoxPassword);
             this.Controls.Add(this.textBoxLogin);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

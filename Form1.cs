@@ -15,12 +15,9 @@ namespace ToDoList2._0_GridForms_
     public partial class Form1 : Form
     {
         private List<Users> users;
-        private string findUsers = $"SELECT * FROM USER  WHERE NAME = @name AND PASSWORD = @pass";
+        private string findUsers = $"SELECT * FROM USER";
         private string dbName = "Users.db";
-        private SQLiteDataAdapter _adapter;
-        private DataSet _dataSet;
-        private DataBase dBWork;
-        private SQLiteConnection _connection;
+      
 
         public Form1()
         {
@@ -60,6 +57,7 @@ namespace ToDoList2._0_GridForms_
         }
         private void addUserToDB(string name, int password, Roles role)
         {
+
             try
             {
                 using (SQLiteConnection connection = new SQLiteConnection(@"Data Source=Users.db;Version=3;"))
@@ -98,7 +96,7 @@ namespace ToDoList2._0_GridForms_
         private void buttonEnter_Click(object sender, EventArgs e)
         {
             string Login = textBoxLogin.Text;
-            string Pass = maskedTextBoxPassword.Text;
+            int Pass = maskedTextBoxPassword.Text.GetHashCode();
 
             DataBase dBWork = new DataBase();
             try
@@ -107,22 +105,29 @@ namespace ToDoList2._0_GridForms_
                 DataTable table = new DataTable();
                 SQLiteCommand sqlCommand = new SQLiteCommand(findUsers, dBWork.getConnection());
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(sqlCommand);
-                sqlCommand.Parameters.Add("@name", DbType.String).Value = Login;
-                sqlCommand.Parameters.Add("@pass", DbType.String).Value = Pass;
+                sqlCommand.Parameters.Add("@NAME", DbType.String).Value = Login;
+                sqlCommand.Parameters.Add("@PASSWORD", DbType.String).Value = Pass;
                 adapter.SelectCommand = sqlCommand;
                 adapter.Fill(table);
-                if (table.Rows.Count > 0)
-                {
-                    MessageBox.Show("Вход успешный");
-                    UserBase newForm = new UserBase();
-                    newForm.Show();
-                    Hide();
 
-                }
-                else
+
+                foreach (DataRow row in table.Rows)
                 {
-                    MessageBox.Show("У вас нет доступа");
+                   // MessageBox.Show("Пошли по циклу");
+                    string username = row["NAME"].ToString();
+                    int hashedPassword = Convert.ToInt32(row["PASSWORD"]);
+
+                    if (Login == username && Pass == hashedPassword)
+                    {
+                        MessageBox.Show("Вход успешный");
+                        ToDoList newForm = new ToDoList();
+                        newForm.Show();
+                        Hide();
+                        return; 
+                    }
                 }
+
+                MessageBox.Show("У вас нет доступа");
                 dBWork.CloseConnection();
 
             }
